@@ -1,16 +1,14 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-
 class Post(models.Model):
-    title = models.CharField(max_length = 200)  #标题
-    slug = models.CharField(max_length = 200)   #网址
-    body = models.TextField()                   #内容
-    pub_date = models.DateTimeField(default = timezone.now)     #发表时间
+    title = models.CharField(max_length=200)
+    slug = models.CharField(max_length=200)
+    body = models.TextField()
+    pub_date = models.DateTimeField(default=timezone.now)
 
-    class Mete:
+    class Meta:
         ordering = ('-pub_date',)
 
-    def __unicode__(self):              #使用unicode以支持中文标题
+    def __unicode__(self):
         return self.title
